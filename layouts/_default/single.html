@@ -14,6 +14,13 @@
 			<div>
 				{{ .Content }}
 			</div>
+            <div id="comments">
+                {{ with .Params.GHissueID }}
+                  {{ partial "comments.html" $ }}
+                {{ else }}
+                  {{ template "_internal/disqus.html" . }}
+                {{ end }}
+            </div>
 		</article>
 	</main>
 {{ partial "sidebar.html" . }}
